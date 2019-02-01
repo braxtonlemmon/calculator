@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    display: block;
+}
+
+body {
+    font-family: 'Audiowide', cursive;
+    background-color: #414141;
+}
+
+header {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 40px;
+    min-width: 200px;
+    max-width: 400px;
+    color: #95cd7c;
+    
+}
+.calc-container {
+    border: 4px solid #311b1b;
+    border-radius: 20px;
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 550px;
+    margin: 20px auto;
+    background-color: #b81404cc;
+}
+
+
+.display-container {
+    border: 4px solid #311b1b;
+    width: 85%;
+    height: 120px;
+    margin: 30px auto 5px auto;
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 20px;
+    background-color: #95cd7c;
+    font-size: 30px;
+    transition: all .13s ease;
+}
+
+.button-container {
+    width: 85%;
+    height: 350px;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.row {
+    height: 15%;
+    width: 99%;
+    
+    margin: 0 auto;
+}
+
+.button, .num-button, .op-button {
+    border-style: solid;
+    float: left;
+    width: 23%;
+    height: 100%;
+    margin: 2.5px 2.9px;
+    border-radius: 10px;
+    background-color: #056571 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all .13s ease;
+}
+
+.button:hover, .num-button:hover, .op-button:hover {
+    cursor: pointer;
+}
+
+#equals {
+    width: 72%;
+}
+
+.pressed {
+    transform: scale(1.1);
+    border-color: #95cd7c;
+    box-shadow: 0 0 1rem #95cd7c;
+}
+
+.pressed-big {
+    transform: scale(1.04);
+    border-color: black;
+ 
+}
