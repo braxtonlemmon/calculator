@@ -11,6 +11,7 @@ html {
 body {
     font-family: 'Audiowide', cursive;
     background-color: #414141;
+    min-height: 700px; 
 }
 
 header {
@@ -22,6 +23,8 @@ header {
     color: #95cd7c;
     
 }
+
+
 .calc-container {
     border: 4px solid #311b1b;
     border-radius: 20px;
@@ -44,6 +47,8 @@ header {
     background-color: #95cd7c;
     font-size: 30px;
     transition: all .13s ease;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .button-container {
@@ -95,4 +100,14 @@ header {
     transform: scale(1.04);
     border-color: black;
  
+}
+
+footer {
+    margin: 0 auto;
+    text-align: center;
+    color: #95cd7c;
+    font-weight: normal;
+    min-width: 200px;
+    max-width: 400px;
+    font-size: 14px;
 }
