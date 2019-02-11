@@ -96,9 +96,12 @@ function opClick(oper) {
 };
 
 function decClick(e) {
+    if (solutionsArray.length === 1 && operationMemory.length === 1) {
+        clearCalc();
+    }
+    
     if (tempDisplay.length === 0) {
         addToDisplay('.');
-        
         operationMemory.push('.');
         tempDisplay = operationMemory.join('').split(/[_+\*/]/g);
     } else if (tempDisplay[tempDisplay.length - 1].toString().match(/[.]/g) != null) {
