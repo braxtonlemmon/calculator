@@ -43,15 +43,19 @@ function operate(operator, aNum, bNum) {
         case (operator == '/'):
             return divide(aNum, bNum);
             break;
+
         default:
             alert('Something has gone wrong. Please refresh.');
             clearCalc();
     };
 };
 
+
 function addToDisplay(input) {
-    displayValue.push(input);
-    display.textContent = displayValue.join('');
+    if (displayValue.length < 26) {
+        displayValue.push(input);
+        display.textContent = displayValue.join('');
+    };
 };
 
 function pressButton(e) {
@@ -226,17 +230,34 @@ decButton.addEventListener('click', (e) => {
 });
 decButton.addEventListener('transitionend', removeTransition);
 
+// function pressButton(e) {
+//     const theButton = document.querySelector(`#${e.target.id}`);
+//     theButton.classList.add('pressed');
+// };
+
+// function removeTransition(e) {
+//     e.target.classList.remove('pressed');
+// };
+function useKeys(e) {
+    const theButton = document.querySelector(`div[data-key="${e.key}"]`);
+    theButton.classList.add('pressed');
+}
+
 window.addEventListener('keyup', function(e) {
     let key = e.keyCode;
-    console.log(e.key);
+    console.log(e);
+    (e.key != "Shift") ? useKeys(e) : false;
     switch(true) {
-        case ((e.key).match(/[0-9]/) !== null):
+        case ((e.key).match(/[0-9]/) !== null): 
+            //useKeys(e);
             return numClick(e.key);    
             break;
         case (e.key === '/'): 
+            //useKeys(e);
             return opClick(e.key);   
             break;
         case (e.key === '-'):
+            //useKeys(e);
             return opClick('_');
             break;
         case (e.shiftKey && (key === 56 || key === 187)):
@@ -246,12 +267,15 @@ window.addEventListener('keyup', function(e) {
             return decClick();
             break;
         case (key === 8):
+            //useKeys(e);
             return erase();
             break;
         case (key === 13):
+            //useKeys(e);
             return calculate();
             break;
         case (key === 46):
+            //useKeys(e);
             return clearCalc();
             break;
         default:
