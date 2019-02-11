@@ -69,7 +69,10 @@ function removeTransition(e) {
 
 
 
-function numClick(number) { 
+function numClick(number) {
+    if (solutionsArray.length === 1 && operationMemory.length === 1) {
+        clearCalc();
+    }
     addToDisplay(number);
     operationMemory.push(number);
     tempDisplay = operationMemory.join('').split(/[_+\*/]/g);
@@ -124,6 +127,8 @@ function erase() {
     // if ((solutionsArray[0] == display.textContent) || (solutionsArray.length === 0)) {
     //     clearCalc();
     // }
+    console.log(displayValue);
+    console.log(operationMemory);
     displayValue.pop();
     operationMemory.pop();
     display.textContent = displayValue.join('');
@@ -145,6 +150,7 @@ function divideByZero() {
     const screen = document.querySelector('.display-container');
     
 }
+
 
 function calculate() {
     let foundOper; 
@@ -230,14 +236,7 @@ decButton.addEventListener('click', (e) => {
 });
 decButton.addEventListener('transitionend', removeTransition);
 
-// function pressButton(e) {
-//     const theButton = document.querySelector(`#${e.target.id}`);
-//     theButton.classList.add('pressed');
-// };
 
-// function removeTransition(e) {
-//     e.target.classList.remove('pressed');
-// };
 function useKeys(e) {
     const theButton = document.querySelector(`div[data-key="${e.key}"]`);
     theButton.classList.add('pressed');
@@ -245,7 +244,6 @@ function useKeys(e) {
 
 window.addEventListener('keyup', function(e) {
     let key = e.keyCode;
-    console.log(e);
     (e.key != "Shift") ? useKeys(e) : false;
     switch(true) {
         case ((e.key).match(/[0-9]/) !== null): 
